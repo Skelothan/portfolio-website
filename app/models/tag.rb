@@ -1,2 +1,39 @@
 class Tag < ApplicationRecord
+    has_many :tag_projects
+    has_many :projects, through: :tag_project
+
+    # Validations
+    validates_presence_of :name, :type
+    validates_uniqueness_of :name
+
+    # Scopes
+    scope :by_name,     lambda {order('name')}
+    scope :by_type,     lambda {order('type')}
+    scope :for_type,    lambda(t) {where('type = ?', "#{t}%")}
+    scope :search,      lambda(t) {where('name LIKE ?', "#{t}%")}
+
+    # Callbacks
+    before_destroy do
+        self.is_destroyable?
+        if errors.present? then throw(:abort) end
+    end:
+    after_rollback :deactivate
+
+    # Methods
+    def activate()
+        self.active = true
+        self.save!
+    end
+
+    def deactivate()
+        self.active = false
+        self.save!
+    end
+
+    private
+        def check_destroyable?()
+            unless self.projects.size == 0 then
+                errors.add(:base, "This tag cannot be deleted because it's currently being used by one or more project. It has been set to inactive instead.")
+            end
+        end
 end
