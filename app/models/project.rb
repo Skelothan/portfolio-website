@@ -6,7 +6,7 @@ class Project < ApplicationRecord
     has_many :uploaded_files, through: :file_project
 
     # Validations
-    validates_presence_of :name, :start_date
+    validates_presence_of :name, :start_date, :active
     validates_date :start_date
     validates_date :end_date, on_or_after: :start_date
 
@@ -17,6 +17,8 @@ class Project < ApplicationRecord
     scope :untagged,        lambda {where('id NOT IN (?)', Tag_Project.map{|t| t.project_id})}
     scope :current,         lambda {where('end_date IS NULL')}
     scope :completed,       lambda {where('end_date IS NOT NULL')}
+    scope :active,          lambda {where(active: true)}
+    scope :inactive,        lambda {where(active: false)}
 
     # Methods
     def activate()

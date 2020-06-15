@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
     has_many :projects, through: :tag_project
 
     # Validations
-    validates_presence_of :name, :type
+    validates_presence_of :name, :type, :active
     validates_uniqueness_of :name
 
     # Scopes
@@ -11,10 +11,12 @@ class Tag < ApplicationRecord
     scope :by_type,     lambda {order('type')}
     scope :for_type,    lambda(t) {where('type = ?', "#{t}%")}
     scope :search,      lambda(t) {where('name LIKE ?', "#{t}%")}
+    scope :active,      lambda {where(active: true)}
+    scope :inactive,    lambda {where(active: false)}
 
     # Callbacks
     before_destroy do
-        self.is_destroyable?
+        self.check_destroyable?
         if errors.present? then throw(:abort) end
     end:
     after_rollback :deactivate
@@ -33,7 +35,7 @@ class Tag < ApplicationRecord
     private
         def check_destroyable?()
             unless self.projects.size == 0 then
-                errors.add(:base, "This tag cannot be deleted because it's currently being used by one or more project. It has been set to inactive instead.")
+                errors.add(:base, "This tag cannot be deleted because it's currently being used by one or more projects. It has been set to inactive instead.")
             end
         end
 end

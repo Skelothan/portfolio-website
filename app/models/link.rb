@@ -6,6 +6,8 @@ class Link < ApplicationRecord
 
     # Scopes
     scope :for_project,     lambda(p) {where('project_id = ?', p.id)}
+    scope :active,          lambda {where(active: true)}
+    scope :inactive,        lambda {where(active: false)}
 
     # Methods
     def activate()
