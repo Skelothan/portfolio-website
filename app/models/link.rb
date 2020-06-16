@@ -5,7 +5,7 @@ class Link < ApplicationRecord
     validates_uniqueness_of :url, scope: :project_id, message: "This project already has that link."
 
     # Scopes
-    scope :for_project,     lambda(p) {where('project_id = ?', p.id)}
+    scope :for_project,     lambda {|p| where('project_id = ?', p.id)}
     scope :active,          lambda {where(active: true)}
     scope :inactive,        lambda {where(active: false)}
 
