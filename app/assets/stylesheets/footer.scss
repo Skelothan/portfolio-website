@@ -2,3 +2,18 @@ p.footer {
     text-align: center;
     font-size: 10pt;
 }
+
+a.footer-link {
+    color: var(--cyan-core);
+
+
+    &:hover {
+        color: var(--cyan-dark-1);
+        text-decoration: underline;
+    }
+    
+    &:active {
+        color: var(--purple-core);
+        text-decoration: underline;
+    }
+}

@@ -12,7 +12,9 @@
   <body>
     <div class="container">
       <%= render partial: "layouts/navbar" %>
-      <%= yield %>
+      <div class="content">
+        <%= yield %>
+      </div>
       <br>
       <hr>
       <%= render partial: "layouts/footer" %>

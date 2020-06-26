@@ -1,0 +1,19 @@
+ul.nav {
+    background-color: var(--purple-dark-1);
+    margin-bottom: 10px;
+    box-shadow: 0 3px 10px var(--cyan-gray-2);
+    
+}
+
+ul.nav li.nav-item {
+    &:hover {
+        background-color: var(--purple-light-1);
+    }
+    &:active {
+        background-color: var(--cyan-light-1);
+    }
+}
+
+a.nav-link {
+    color: white;
+}
