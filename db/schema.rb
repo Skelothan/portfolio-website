@@ -10,18 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_013554) do
+ActiveRecord::Schema.define(version: 2020_07_03_091929) do
 
   create_table "file_projects", force: :cascade do |t|
-    t.integer "file_id"
+    t.integer "uploaded_file_id"
     t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["file_id"], name: "index_file_projects_on_file_id"
     t.index ["project_id"], name: "index_file_projects_on_project_id"
+    t.index ["uploaded_file_id"], name: "index_file_projects_on_uploaded_file_id"
   end
 
   create_table "links", force: :cascade do |t|
+    t.string "name"
     t.string "url"
     t.integer "project_id"
     t.boolean "active"
