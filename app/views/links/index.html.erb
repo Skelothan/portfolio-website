@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>Name</th>
       <th>Url</th>
       <th>Project</th>
       <th>Active</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @links.each do |link| %>
       <tr>
+        <td><%= link.name %></td>
         <td><%= link.url %></td>
         <td><%= link.project %></td>
         <td><%= link.active %></td>
