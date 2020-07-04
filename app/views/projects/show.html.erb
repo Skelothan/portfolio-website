@@ -22,7 +22,7 @@
       <li>
         <%= link_to l.url do %>
           <%= l.name %>
-          <%= image_tag 'bootstrap-icons/box-arrow-up-right.svg', width: 16, height: 16, class: "external_link" %>
+          <%= render "bootstrap-icons/box_arrow_up-right", locals: {height: 16, width: 16} %>
         <% end %>
       </li>
     <% end %>
