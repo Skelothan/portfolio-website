@@ -6,10 +6,43 @@ h5.dates {
     font-style: italic;
 }
 
-ul.links {
+ul.links, ul.files {
     padding-left: 10px;
+    max-width: fit-content;
 }
 
-ul.links li {
+ul.links li, ul.files li {
     list-style-type: none;
+}
+
+ul.files li {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--purple-light-2);
+    padding: 10px;
+    box-shadow: 0 2px 4px var(--purple-gray-2-light);
+    svg {
+        fill: var(--purple-gray-1);
+        height: 2em; 
+        width: 2em;
+    }
+
+    &:hover {
+        background-color: var(--purple-gray-ultralight);
+        svg {
+            fill: var(--purple-core);
+        }
+    }
+}
+
+ul.files a {
+    &:hover {
+        text-decoration: none;
+        color: var(--cyan-core);
+    }
+    max-width: fit-content;
+}
+
+svg.external-link {
+    fill: var(--purple-core);
 }
