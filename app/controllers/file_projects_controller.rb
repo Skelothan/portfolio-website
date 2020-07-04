@@ -69,6 +69,6 @@ class FileProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def file_project_params
-      params.require(:file_project).permit(:file_id, :project_id)
+      params.require(:file_project).permit(:uploaded_file_id, :project_id)
     end
 end
