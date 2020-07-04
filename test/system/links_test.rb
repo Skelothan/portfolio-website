@@ -15,6 +15,7 @@ class LinksTest < ApplicationSystemTestCase
     click_on "New Link"
 
     check "Active" if @link.active
+    fill_in "Name", with: @link.name
     fill_in "Project", with: @link.project_id
     fill_in "Url", with: @link.url
     click_on "Create Link"
@@ -28,6 +29,7 @@ class LinksTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     check "Active" if @link.active
+    fill_in "Name", with: @link.name
     fill_in "Project", with: @link.project_id
     fill_in "Url", with: @link.url
     click_on "Update Link"

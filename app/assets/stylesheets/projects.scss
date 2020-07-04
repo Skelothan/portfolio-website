@@ -1,3 +1,15 @@
 // Place all the styles related to the Projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+h5.dates {
+    font-style: italic;
+}
+
+ul.links {
+    padding-left: 10px;
+}
+
+ul.links li {
+    list-style-type: none;
+}

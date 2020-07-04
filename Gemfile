@@ -44,6 +44,10 @@ gem 'will_paginate'
 gem 'shoulda', '3.5.0'
 gem 'shoulda-matchers', '2.8.0'
 
+# CSS Gems
+gem 'jquery-rails'
+gem 'bootstrap', '~> 4.5.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
