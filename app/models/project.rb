@@ -1,9 +1,9 @@
 class Project < ApplicationRecord
     has_many :tag_projects
-    has_many :tags, through: :tag_project
+    has_many :tags, through: :tag_projects
     has_many :links
     has_many :file_projects
-    has_many :uploaded_files, through: :file_project
+    has_many :uploaded_files, through: :file_projects
 
     # Validations
     validates_presence_of :name, :start_date, :active
