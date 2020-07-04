@@ -17,7 +17,7 @@ class UploadedFile < ApplicationRecord
     scope :inactive,        lambda {where(active: false)}
 
     # Callbacks
-    before_create :set_upload_date
+    after_create :set_upload_date
     before_destroy do
         self.check_destroyable?
         if errors.present? then throw(:abort) end
