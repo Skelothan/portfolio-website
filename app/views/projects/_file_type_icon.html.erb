@@ -1,0 +1,3 @@
+<% icons = Hash["document" => "bootstrap-icons/file_earmark_text", "image" => "bootstrap-icons/image", "audio" => "bootstrap-icons/volume_up", "video" => "bootstrap-icons/film", "executable" => "bootstrap-icons/terminal", "archive" => "bootstrap-icons/file_zip", "other" => "bootstrap-icons/files"] %>
+
+<%= render partial: icons[file.media_type]%>
