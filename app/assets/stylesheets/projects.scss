@@ -6,6 +6,23 @@ h5.dates {
     font-style: italic;
 }
 
+div.tags {
+    font-size: 10pt;
+}
+
+ul.tags {
+    padding-left: 0px;
+    height: max-content;
+    svg {
+        /* float: left; */
+    }
+    li {
+        list-style-type: none;
+        float: left;
+        padding: 5px;
+    }
+}
+
 ul.links, ul.files {
     padding-left: 10px;
     max-width: fit-content;
@@ -13,9 +30,6 @@ ul.links, ul.files {
 
 ul.links li, ul.files li {
     list-style-type: none;
-}
-
-ul.files li {
     border-style: solid;
     border-width: 1px;
     border-color: var(--purple-light-2);
@@ -35,14 +49,16 @@ ul.files li {
     }
 }
 
-ul.files a {
+ul.files a, ul.links a {
+    max-width: fit-content;
     &:hover {
         text-decoration: none;
         color: var(--cyan-core);
     }
-    max-width: fit-content;
 }
 
-svg.external-link {
+li.link svg.external-link {
     fill: var(--purple-core);
+    height: 1em;
+    width: 1em;
 }
