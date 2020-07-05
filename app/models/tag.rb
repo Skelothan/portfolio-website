@@ -18,7 +18,7 @@ class Tag < ApplicationRecord
     before_destroy do
         self.check_destroyable?
         if errors.present? then throw(:abort) end
-    end:
+    end
     after_rollback :deactivate
 
     # Methods
