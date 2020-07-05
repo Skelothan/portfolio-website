@@ -3,13 +3,13 @@ class Tag < ApplicationRecord
     has_many :projects, through: :tag_project
 
     # Validations
-    validates_presence_of :name, :type, :active
+    validates_presence_of :name, :category, :active
     validates_uniqueness_of :name
 
     # Scopes
     scope :by_name,     lambda {order('name')}
-    scope :by_type,     lambda {order('type')}
-    scope :for_type,    lambda {|t| where('type = ?', "#{t}%")}
+    scope :by_category,     lambda {order('category')}
+    scope :for_category,    lambda {|t| where('category = ?', "#{t}%")}
     scope :search,      lambda {|t| where('name LIKE ?', "#{t}%")}
     scope :active,      lambda {where(active: true)}
     scope :inactive,    lambda {where(active: false)}
