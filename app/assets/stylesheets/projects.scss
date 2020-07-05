@@ -6,6 +6,23 @@ h5.dates {
     font-style: italic;
 }
 
+div.tags {
+    font-size: 10pt;
+}
+
+ul.tags {
+    padding-left: 0px;
+    height: max-content;
+    svg {
+        /* float: left; */
+    }
+    li {
+        list-style-type: none;
+        float: left;
+        padding: 5px;
+    }
+}
+
 ul.links, ul.files {
     padding-left: 10px;
     max-width: fit-content;
