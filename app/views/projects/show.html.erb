@@ -19,12 +19,13 @@
   <h5>Links</h5>
   <ul class="links">
     <% @project.links.each do |l| %>
-      <li>
-        <%= link_to l.url do %>
+      <%= link_to l.url do %>
+        <li class="link">
+          <%= render partial: "bootstrap-icons/link_45deg" %>
           <%= l.name %>
           <%= render "bootstrap-icons/box_arrow_up-right", locals: {height: 16, width: 16} %>
-        <% end %>
-      </li>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% end %>
