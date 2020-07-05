@@ -9,6 +9,19 @@
     <%= @project.end_date.strftime("%B %Y") %>
   <% end %>
 </h5>
+
+<% if @project.tags.count > 0 %>
+  <div class="tags">
+    <ul class="tags">
+      &nbsp; <!-- Makes the ul have nonzero height, so the <hr> appears below the tags. Thanks, css float -->
+      <li><%= render partial: "bootstrap-icons/tag_fill" %></li>
+      <% @project.tags.each do |t| %>
+        <li class="tag"><%= link_to t.name, tag_path(t) %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <hr>
 
 <p>
