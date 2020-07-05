@@ -19,7 +19,7 @@
   <h5>Links</h5>
   <ul class="links">
     <% @project.links.each do |l| %>
-      <%= link_to l.url do %>
+      <%= link_to l.url, html_options = {target: "_blank"} do %>
         <li class="link">
           <%= render partial: "bootstrap-icons/link_45deg" %>
           <%= l.name %>
