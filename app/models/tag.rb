@@ -1,6 +1,6 @@
 class Tag < ApplicationRecord
     has_many :tag_projects
-    has_many :projects, through: :tag_project
+    has_many :projects, through: :tag_projects
 
     # Validations
     validates_presence_of :name, :category, :active
