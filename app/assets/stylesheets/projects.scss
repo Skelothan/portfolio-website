@@ -42,6 +42,9 @@ ul.links li, ul.files li {
     }
 
     &:hover {
+        position: relative;
+        top: -2px;
+        box-shadow: 0 4px 5px var(--purple-gray-2-light);
         background-color: var(--purple-gray-ultralight);
         svg {
             fill: var(--purple-core);
@@ -53,7 +56,7 @@ ul.files a, ul.links a {
     max-width: fit-content;
     &:hover {
         text-decoration: none;
-        color: var(--cyan-core);
+        /*color: var(--cyan-core);*/
     }
 }
 
