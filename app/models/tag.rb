@@ -9,8 +9,8 @@ class Tag < ApplicationRecord
     # Scopes
     scope :by_name,     lambda {order('name')}
     scope :by_category,     lambda {order('category')}
-    scope :for_category,    lambda {|t| where('category = ?', "#{t}%")}
-    scope :search,      lambda {|t| where('name LIKE ?', "#{t}%")}
+    scope :for_category,    lambda {|t| where('category = ?', "#{t}")}
+    scope :search,      lambda {|t| where('name LIKE ?', "#{t}")}
     scope :active,      lambda {where(active: true)}
     scope :inactive,    lambda {where(active: false)}
 
