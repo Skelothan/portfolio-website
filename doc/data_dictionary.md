@@ -67,10 +67,10 @@ I had originally named the uploaded file object "File", but that caused errors d
 
 ### Users
 A person who can log in to the web application and gain additional permissions.  
-This should only ever be me, so there's no need for a username attribute.
 
 |Attribute|Type|Description|Example data|
 |:---|:---|:---|:---|
 |id|int|Primary key.|`1`|
-|authority|string|A string representing a level of control over the system. There is only one level, "admin".|"admin"|
+|authority|string|A string representing a level of control over the system. There is only one level, "webmaster", which grants full control.|"webmaster"|
+|username|string|A string representing the name of a user.|"Skelothan"
 |password_digest|string|A bcrypt hashed password, used to verify the identity of the person logging in.||

@@ -7,6 +7,14 @@
             <a class="footer-link" href="#">Privacy</a>
             <br><br>
             Site contents and style &copy;2020 Jonathan Fischer. All rights reserved.
+            <br><br>
+        </p>
+        <p class="footer-small">
+            <% if logged_in? then %>
+                 <%= link_to "Log out", logout_path, class: "footer-link" %>
+            <% else %>
+                <%= link_to "Webmaster log in", login_path, class: "footer-link" %>
+            <% end %>
         </p>
     </div>
 </div>
