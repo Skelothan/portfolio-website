@@ -16,7 +16,9 @@
       &nbsp; <!-- Makes the ul have nonzero height, so the <hr> appears below the tags. Thanks, css float -->
       <li><%= render partial: "bootstrap-icons/tag_fill" %></li>
       <% @project.tags.each do |t| %>
-        <li class="tag"><%= link_to t.name, tag_path(t) %></li>
+        <%= link_to tag_path(t) do %>
+          <li class="tag"><%= t.name %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>
