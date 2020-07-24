@@ -7,7 +7,7 @@ class User < ApplicationRecord
     validates_presence_of :password, on: :create
     validates_presence_of :password_confirmation , on: :create
     validates_confirmation_of :password, message: "does not match confirmation"
-    validate_inclusion_of :authority, in: %w(webmaster), message: "is not a valid role"
+    validates_inclusion_of :authority, in: %w(webmaster), message: "is not a valid role"
 
     # Methods
     # For use with CanCan
