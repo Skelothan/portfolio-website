@@ -13,7 +13,8 @@ class User < ApplicationRecord
     # For use with CanCan
     ROLES = [['Webmaster', :webmaster]]
     def role?(authorized_role)
-        return (self.role.nil? and self.role.downcase.to_sym == authorized_role)
+        if self.authority.nil? then return false end
+        return self.authority.downcase.to_sym == authorized_role
     end
 
     # Login

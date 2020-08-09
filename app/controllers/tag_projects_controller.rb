@@ -1,5 +1,6 @@
 class TagProjectsController < ApplicationController
   before_action :set_tag_project, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /tag_projects
   # GET /tag_projects.json
