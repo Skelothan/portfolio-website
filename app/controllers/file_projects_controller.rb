@@ -1,5 +1,6 @@
 class FileProjectsController < ApplicationController
   before_action :set_file_project, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /file_projects
   # GET /file_projects.json

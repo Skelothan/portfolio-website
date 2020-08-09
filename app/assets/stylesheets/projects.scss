@@ -20,6 +20,15 @@ ul.tags {
         list-style-type: none;
         float: left;
         padding: 5px;
+        &:hover {
+            background-color: var(--purple-gray-ultralight);
+            color: var(--cyan-dark-1);
+            text-decoration: none;
+            text-decoration-color: var(--cyan-dark-1);
+        }
+        &:active {
+            background-color: white;
+        }
     }
 }
 
@@ -50,6 +59,15 @@ ul.links li, ul.files li {
             fill: var(--purple-core);
         }
     }
+    &:active {
+        position: relative;
+        top: 2px;
+        box-shadow: 0 0 0 var(--purple-gray-2-light);
+        background-color: var(--purple-gray-ultralight);
+        svg {
+            fill: var(--purple-core);
+        }
+    }
 }
 
 ul.files a, ul.links a {
@@ -61,7 +79,6 @@ ul.files a, ul.links a {
 }
 
 li.link svg.external-link {
-    fill: var(--purple-core);
     height: 1em;
     width: 1em;
 }

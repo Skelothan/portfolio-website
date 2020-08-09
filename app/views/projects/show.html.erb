@@ -16,7 +16,9 @@
       &nbsp; <!-- Makes the ul have nonzero height, so the <hr> appears below the tags. Thanks, css float -->
       <li><%= render partial: "bootstrap-icons/tag_fill" %></li>
       <% @project.tags.each do |t| %>
-        <li class="tag"><%= link_to t.name, tag_path(t) %></li>
+        <%= link_to tag_path(t) do %>
+          <li class="tag"><%= t.name %></li>
+        <% end %>
       <% end %>
     </ul>
   </div>
@@ -60,5 +62,7 @@
 <!-- asset_path(file.url, type: :file) -->
 
 <br>
-<%= if false then link_to 'Edit', edit_project_path(@project) end %>
+<% if can? :edit, Project %>
+  <%= link_to 'Edit', edit_project_path(@project) %> | 
+<% end %>
 <%= link_to 'Back', projects_path %>

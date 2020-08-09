@@ -51,6 +51,16 @@ div {
     box-shadow: 0 5px 10px var(--cyan-gray-2);
     padding: 15px;
   }
+  &.flash {
+    border-style: solid;
+    border-width: 1px;
+    border-color: var(--purple-light-2);
+    padding: 10px;
+    box-shadow: 0 2px 4px var(--purple-gray-2-light);
+    p {
+      margin-bottom: 0px;
+    }
+  }
 }
 
 
