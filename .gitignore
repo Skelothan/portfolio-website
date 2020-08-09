@@ -34,3 +34,6 @@
 */~$*.doc*
 */~$*.xls*
 */~$*.ppt*
+
+# Ignore documentation screenshots
+/doc/pics/*
