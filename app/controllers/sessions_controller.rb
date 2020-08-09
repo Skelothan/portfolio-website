@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
             redirect_to projects_path, notice: "Welcome back, Jonathan."
         else
             flash.now.alert = "Incorrect password."
+            render "new"
         end
     end
 
