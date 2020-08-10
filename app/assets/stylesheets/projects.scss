@@ -32,12 +32,19 @@ ul.tags {
     }
 }
 
-ul.links, ul.files {
+ul.links, ul.files, ul.projects {
     padding-left: 10px;
     max-width: fit-content;
+    a {
+        max-width: fit-content;
+        &:hover {
+            text-decoration: none;
+            /*color: var(--cyan-core);*/
+        }
+    }
 }
 
-ul.links li, ul.files li {
+ul.links li, ul.files li, ul.projects li {
     list-style-type: none;
     border-style: solid;
     border-width: 1px;
@@ -70,12 +77,15 @@ ul.links li, ul.files li {
     }
 }
 
-ul.files a, ul.links a {
-    max-width: fit-content;
-    &:hover {
-        text-decoration: none;
-        /*color: var(--cyan-core);*/
+ul.projects {
+    height: max-content;
+    li {
+        float: left;
     }
+}
+
+div.project-options {
+    text-align: center;
 }
 
 li.link svg.external-link {
