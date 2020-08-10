@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
     rescue_from CanCan::AccessDenied do |exception|
-        flash[:error] = "You are not authorized to take that action."
+        flash[:error] = "Guests are not able to view that page."
         redirect_to projects_path
     end
 
