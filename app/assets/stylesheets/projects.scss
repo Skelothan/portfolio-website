@@ -13,13 +13,12 @@ div.tags {
 ul.tags {
     padding-left: 0px;
     height: max-content;
-    svg {
-        /* float: left; */
-    }
+    margin-bottom: 0px;
     li {
         list-style-type: none;
         float: left;
         padding: 5px;
+        margin-bottom: 5px;
         &:hover {
             background-color: var(--purple-gray-ultralight);
             color: var(--cyan-dark-1);
