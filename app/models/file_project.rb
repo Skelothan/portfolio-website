@@ -1,6 +1,6 @@
 class FileProject < ApplicationRecord
-  belongs_to :uploaded_file
-  belongs_to :project
+  belongs_to :uploaded_file, required: true
+  belongs_to :project, required: true
 
   # Validations
   validates_presence_of :project_id, :uploaded_file_id

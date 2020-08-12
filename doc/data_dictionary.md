@@ -10,7 +10,11 @@ Projects are the main entity, describing something I have worked on and wish to 
 |name|string|The name of the project.|"Portfolio Website"|
 |start_date|date|The date the project started.|`2020-07-14`|
 |end_date|date|The date the project ended. Must be on or after start_date. Has value NULL if the project is currently ongoing.|`2020-07-15`<br>`NULL`|
-|description|text|A lengthy description of the project.|"A web application built in Ruby on Rails for the purpose of showcasing things I've worked on. [...]"|
+|short_description|string|A one-sentence description of the project to be shown on the project list pages.|"Ruby on Rails web application for showcasing things I've worked on."
+|description|text|A lengthy description of the project.|"A web application built in Ruby on Rails for the purpose of showcasing things I've worked on. [more...]"|
+|category|string|A broad category the project falls into. Projects will be only shown together with other projects in the same category.|"Software development"
+|thumbnail|int|Foreign key. An Uploaded file that will be used as a background image on the project list pages. Must be an image.|5|
+|priority|int|Used to determine the order of projects on the list pages.|10|
 |active|boolean|Whether this project should be publicly displayed on the site.|`true`|
 
 ### Tags
