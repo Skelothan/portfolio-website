@@ -13,7 +13,6 @@
 <% if @project.tags.count > 0 %>
   <div class="tags">
     <ul class="tags">
-      &nbsp; <!-- Makes the ul have nonzero height, so the <hr> appears below the tags. Thanks, css float -->
       <li><%= render partial: "bootstrap-icons/tag_fill" %></li>
       <% @project.tags.each do |t| %>
         <%= link_to tag_path(t) do %>
@@ -24,7 +23,7 @@
   </div>
 <% end %>
 
-<hr>
+<hr style="clear:left;">
 
 <p>
   <%= @project.description %>

@@ -1,37 +1,31 @@
-<h1>Projects</h1>
+<h1>All Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Description</th>
-      <th>Active</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @projects.each do |project| %>
-      <tr>
-        <td><%= project.name %></td>
-        <td><%= project.start_date %></td>
-        <td><%= project.end_date %></td>
-        <td><%= project.description %></td>
-        <td><%= project.active %></td>
-        <td><%= link_to 'Show', project %></td>
-        <% if can? :edit, Project %>
-          <td><%= link_to 'Edit', edit_project_path(project) %></td>
+<ul class="projects">
+  <% @projects.active.each do |project| %>
+    <%= link_to project_path(project) do %>
+      <li class="project">
+        <h4><%= project.name %></h4>
+
+        <% if can? :edit, Project or can? :destroy, Project %>
+          <hr>
+          <div class="project-options">
+            <% if can? :edit, Project %>
+              <%= link_to 'Edit', edit_project_path(project) %>
+            <% end %>
+            <% if can? :destroy, Project %>
+              | <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+          </div>
         <% end %>
-        <% if can? :destroy, Project %>
-          <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
+
+      </li>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</ul>
 
-<br>
+<br style="clear:left;"><br>
 
-<%= link_to 'New Project', new_project_path %>
+<% if can? :create, Project %>
+  <%= link_to 'New Project', new_project_path %>
+<% end %>
