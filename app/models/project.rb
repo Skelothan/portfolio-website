@@ -7,7 +7,8 @@ class Project < ApplicationRecord
     belongs_to :thumbnail, class_name: "UploadedFile"
 
     # Validations
-    validates_presence_of :name, :start_date, :active
+    validates_presence_of :name, :start_date, :active, :priority
+    validates_numericality_of :priority, only_integer: true
     validates_date :start_date
     validates_date :end_date, on_or_after: :start_date
     validate :ensure_thumbnail_is_image

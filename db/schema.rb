@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_005839) do
+ActiveRecord::Schema.define(version: 2020_08_12_151155) do
 
   create_table "file_projects", force: :cascade do |t|
     t.integer "uploaded_file_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_08_12_005839) do
     t.string "short_description"
     t.integer "thumbnail_id"
     t.string "category"
+    t.integer "priority"
   end
 
   create_table "tag_projects", force: :cascade do |t|
