@@ -1,5 +1,5 @@
 class Link < ApplicationRecord
-    belongs_to :project
+    belongs_to :project, required: true
 
     # Validations
     validates_presence_of :name, :url
