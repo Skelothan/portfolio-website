@@ -4,11 +4,13 @@ class Project < ApplicationRecord
     has_many :links
     has_many :file_projects
     has_many :uploaded_files, through: :file_projects
+    belongs_to :thumbnail, class_name: "UploadedFile"
 
     # Validations
     validates_presence_of :name, :start_date, :active
     validates_date :start_date
     validates_date :end_date, on_or_after: :start_date
+    validate :ensure_thumbnail_is_image
 
     # Scopes
     scope :alphabetical,    lambda {order(:name)}
@@ -60,5 +62,15 @@ class Project < ApplicationRecord
         return (self.num_links > 0)
     end
 
+    def has_thumbnail?()
+        return (not self.thumbnail_id.nil?)
+    end
+
+    private
+        def ensure_thumbnail_is_image()
+            if self.has_thumbnail? and self.thumbnail.media_type != "image" then
+                errors.add(:thumbnail, "must be an image")
+            end
+        end
 
 end

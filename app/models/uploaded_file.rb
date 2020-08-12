@@ -1,6 +1,7 @@
 class UploadedFile < ApplicationRecord
     has_many :file_project
     has_many :project, through: :file_project # Realistically, I don't expect the same file to apply to more than one project... but hey, you never know
+    has_many :project_thumbnail, class_name: "Project", foreign_key: "thumbnail_id"
 
     # Validations
     validates_presence_of :name, :url, :media_type, :upload_date, :active
