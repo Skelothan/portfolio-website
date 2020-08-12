@@ -1,5 +1,6 @@
 class UploadedFilesController < ApplicationController
   before_action :set_uploaded_file, only: [:show, :edit, :update, :destroy]
+  authorize_resource
 
   # GET /uploaded_files
   # GET /uploaded_files.json
