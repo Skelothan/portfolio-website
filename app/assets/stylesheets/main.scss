@@ -61,12 +61,12 @@ div {
       margin-bottom: 0px;
     }
   }
-}
-
-
-
-#notice {
-  color: green;
+  &.notice {
+    border-color: var(--bootstrap-success);
+  }
+  &.warning {
+    border-color: var(--bootstrap-danger);
+  }
 }
 
 .field_with_errors {
