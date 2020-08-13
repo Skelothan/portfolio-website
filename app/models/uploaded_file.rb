@@ -20,10 +20,9 @@ class UploadedFile < ApplicationRecord
     # Callbacks
     after_create :set_upload_date
     before_destroy do
-        self.check_destroyable?
+        check_destroyable?
         if errors.present? then throw(:abort) end
     end
-    after_rollback :deactivate
 
     # Methods
     def activate()
@@ -43,8 +42,8 @@ class UploadedFile < ApplicationRecord
 
     private
         def check_destroyable?()
-            unless self.projects.size == 0 then
-                errors.add(:base, "This file cannot be deleted because it's currently being used by one or more projects. It has been set to inactive instead.")
+            unless self.project.size == 0 then
+                errors.add(:base, "This file cannot be deleted because it's currently being used by one or more projects. You should deactivate it instead.")
             end
         end
 
