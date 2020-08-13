@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "layouts/flash" %>
 
 <h2><%= render partial: "bootstrap-icons/tag_fill" %> <%= @tag.name %></h2>
 <h6>In category: <%= link_to @tag.category, tags_path %></h6>
