@@ -6,7 +6,9 @@
     <%= link_to project_path(project) do %>
       <li class="project">
         <h4><%= project.name %></h4>
-
+        <% if not project.short_description.nil? %>
+          <p><%= project.short_description %></p>
+        <% end %>
         <% if can? :edit, Project or can? :destroy, Project %>
           <hr>
           <div class="project-options">

@@ -80,6 +80,11 @@ ul.projects {
     height: max-content;
     li {
         float: left;
+        text-align: center;
+        p {
+            color: black;
+            margin-bottom: 0px;
+        }
     }
 }
 
