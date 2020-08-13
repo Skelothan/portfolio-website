@@ -19,13 +19,13 @@ ul.tags {
         float: left;
         padding: 5px;
         margin-bottom: 5px;
-        &:hover {
+        &.tag:hover {
             background-color: var(--purple-gray-ultralight);
             color: var(--cyan-dark-1);
             text-decoration: none;
             text-decoration-color: var(--cyan-dark-1);
         }
-        &:active {
+        &.tag:active {
             background-color: white;
         }
     }
