@@ -79,6 +79,8 @@ ul.links li, ul.files li, ul.projects li {
 ul.projects {
     height: max-content;
     li {
+        width: 31%;
+        margin: 1%;
         float: left;
         text-align: center;
         background-size: cover;
