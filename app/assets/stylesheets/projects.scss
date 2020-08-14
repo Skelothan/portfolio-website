@@ -19,13 +19,13 @@ ul.tags {
         float: left;
         padding: 5px;
         margin-bottom: 5px;
-        &:hover {
+        &.tag:hover {
             background-color: var(--purple-gray-ultralight);
             color: var(--cyan-dark-1);
             text-decoration: none;
             text-decoration-color: var(--cyan-dark-1);
         }
-        &:active {
+        &.tag:active {
             background-color: white;
         }
     }
@@ -80,7 +80,20 @@ ul.projects {
     height: max-content;
     li {
         float: left;
+        text-align: center;
+        background-size: cover;
+        p {
+            color: black;
+            margin-bottom: 0px;
+        }
     }
+}
+
+div.project-title {
+    background-size: cover;
+    margin: -15px;
+    margin-top: -15px;
+    padding: 15px;
 }
 
 div.project-options {

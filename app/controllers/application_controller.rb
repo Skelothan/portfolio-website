@@ -1,5 +1,17 @@
 class ApplicationController < ActionController::Base
 
+    rescue_from ActionController::RoutingError do |exception|
+        redirect_to error_404_path
+    end
+
+    rescue_from ActiveRecord::RecordNotFound do |exception|
+        redirect_to error_404_path
+    end
+
+    rescue_from ActionController::UnknownController do |exception|
+        redirect_to error_404_path
+    end
+
     rescue_from CanCan::AccessDenied do |exception|
         flash[:error] = "Guests are not able to view that page."
         redirect_to projects_path

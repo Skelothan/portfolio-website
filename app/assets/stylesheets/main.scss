@@ -18,6 +18,10 @@ pre {
   font-size: 11px;
 }
 
+a {
+  cursor: pointer;
+}
+
 div.content a {
   color: var(--cyan-core);
 
@@ -57,16 +61,17 @@ div {
     border-color: var(--purple-light-2);
     padding: 10px;
     box-shadow: 0 2px 4px var(--purple-gray-2-light);
+    background-color: white;
     p {
       margin-bottom: 0px;
     }
   }
-}
-
-
-
-#notice {
-  color: green;
+  &.notice {
+    border-color: var(--bootstrap-success);
+  }
+  &.warning {
+    border-color: var(--bootstrap-danger);
+  }
 }
 
 .field_with_errors {

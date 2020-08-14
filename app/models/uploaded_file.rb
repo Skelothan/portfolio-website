@@ -1,6 +1,7 @@
 class UploadedFile < ApplicationRecord
     has_many :file_project
     has_many :project, through: :file_project # Realistically, I don't expect the same file to apply to more than one project... but hey, you never know
+    has_many :project_thumbnail, class_name: "Project", foreign_key: "thumbnail_id"
 
     # Validations
     validates_presence_of :name, :url, :media_type, :upload_date, :active
@@ -19,10 +20,9 @@ class UploadedFile < ApplicationRecord
     # Callbacks
     after_create :set_upload_date
     before_destroy do
-        self.check_destroyable?
+        check_destroyable?
         if errors.present? then throw(:abort) end
     end
-    after_rollback :deactivate
 
     # Methods
     def activate()
@@ -42,8 +42,8 @@ class UploadedFile < ApplicationRecord
 
     private
         def check_destroyable?()
-            unless self.projects.size == 0 then
-                errors.add(:base, "This file cannot be deleted because it's currently being used by one or more projects. It has been set to inactive instead.")
+            unless self.project.size == 0 then
+                errors.add(:base, "This file cannot be deleted because it's currently being used by one or more projects. You should deactivate it instead.")
             end
         end
 

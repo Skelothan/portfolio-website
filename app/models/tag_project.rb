@@ -1,6 +1,6 @@
 class TagProject < ApplicationRecord
-  belongs_to :project
-  belongs_to :tag
+  belongs_to :project, required: true
+  belongs_to :tag, required: true
 
   # Validations
   validates_presence_of :project_id, :tag_id
