@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
   # Semi-static routes
+  get "index", to: "home#index", as: :home
+  get "about", to: "home#about", as: :about
+  get "contact", to: "home#contact", as: :contact
+  get "privacy", to: "home#privacy", as: :privacy
+  get "search", to: "home#search", as: :search
   get "login", to: "sessions#new", as: :login
   get "logout", to: "sessions#destroy", as: :logout
-  get 'errors/404', to: "errors#error_404", as: :error_404
+  get "errors/404", to: "errors#error_404", as: :error_404
+  
 
   # Resource routes
   resources :sessions
@@ -15,5 +21,7 @@ Rails.application.routes.draw do
   resources :projects
   
   match '*path' => 'errors#error_404', via: :all
-  
+
+  root "home#index"
+
 end
