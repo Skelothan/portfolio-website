@@ -8,8 +8,8 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to projects_path, notice: "Welcome back, Jonathan."
         else
-            flash.now.alert = "Incorrect password."
-            render "new"
+            flash.alert = "Incorrect password."
+            redirect_to login_path
         end
     end
 
