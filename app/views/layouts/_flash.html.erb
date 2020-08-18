@@ -1,5 +1,5 @@
 <% flash.each do |name, message| %>
-    <div class="flash <%= flash[:notice] ? "notice" : "warning" %>">
+    <div class="flash <%= flash[:notice] ? "notice" : "warning" %>" onclick="this.remove()">
         <p><%= message %></p>
-    </div><br>
+    </div>
 <% end %>
