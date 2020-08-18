@@ -68,9 +68,11 @@ div {
   }
   &.notice {
     border-color: var(--bootstrap-success);
+    box-shadow: 0 2px 4px var(--bootstrap-success-gray-2-light);
   }
   &.warning {
     border-color: var(--bootstrap-danger);
+    box-shadow: 0 2px 4px var(--bootstrap-danger-gray-2-light);
   }
 }
 
