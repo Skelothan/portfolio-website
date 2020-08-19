@@ -32,9 +32,9 @@
 
 <hr style="clear:left;">
 
-<p>
-  <%= @project.description %>
-</p>
+
+<%= simple_format(@project.description) %>
+
 
 <% if @project.links.count > 0 %>
   <h5>Links</h5>
