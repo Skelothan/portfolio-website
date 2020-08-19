@@ -6,7 +6,7 @@ class UploadedFile < ApplicationRecord
     # Validations
     validates_presence_of :name, :url, :media_type, :upload_date, :active
     validates_uniqueness_of :url, message: "A file with that name exists already."
-    validates_date :upload_date, on_or_before: Date.current
+    validates_date :upload_date, on_or_before: 0.days.ago
     validates_inclusion_of :media_type, in: %w[document image audio video executable archive other], message: "Not a valid media type."
 
     # Scopes
