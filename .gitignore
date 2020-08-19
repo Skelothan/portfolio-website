@@ -37,3 +37,6 @@
 
 # Ignore documentation screenshots
 /doc/pics/*
+
+# Ignore uploaded files
+/app/assets/files/*
