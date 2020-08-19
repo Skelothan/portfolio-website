@@ -1,10 +1,12 @@
 <% if @project.has_thumbnail? then %>
   <div class="project-title" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,1)), url('<%= asset_path(@project.thumbnail.url, type: :file) %>')">
+    <%= render partial: "layouts/flash" %>
+    <h2 style="margin-top: 4em;"><%= @project.name %></h2>
 <% else %>
   <div class="project-title">
+    <%= render partial: "layouts/flash" %>
+    <h2><%= @project.name %></h2>
 <% end %>
-  <%= render partial: "layouts/flash" %>
-  <h2><%= @project.name %></h2>
   <h5 class="dates">
     <%= @project.start_date.strftime("%B %Y") %> &ndash; 
     <% if @project.end_date.nil? %>
