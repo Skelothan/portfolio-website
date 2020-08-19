@@ -55,7 +55,7 @@
   <h5>Files</h5>
   <ul class="files">
     <% @project.uploaded_files.each do |f| %>
-      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url} do %>
+      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
         <li class="file">
           <%= render partial: "projects/file_type_icon", locals: {file: f}%>
           <%= f.name %>
