@@ -3,13 +3,16 @@
     
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link" href="#">About Me</a>
+                <%= link_to "About Me", about_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <%= link_to "Projects", projects_path, html_options = {class: "nav-link"} %>
+                <%= link_to "Game Development", gamedev_path, class: "nav-link" %>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Search</a>
+                <%= link_to "Game Music and Sound Design", gameaudio_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+                <%= link_to "Web Development", webdev_path, class: "nav-link" %>
             </li>
         </ul>
 

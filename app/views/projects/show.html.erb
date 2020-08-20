@@ -1,10 +1,12 @@
 <% if @project.has_thumbnail? then %>
   <div class="project-title" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,1)), url('<%= asset_path(@project.thumbnail.url, type: :file) %>')">
+    <%= render partial: "layouts/flash" %>
+    <h2 style="margin-top: 4em;"><%= @project.name %></h2>
 <% else %>
   <div class="project-title">
+    <%= render partial: "layouts/flash" %>
+    <h2><%= @project.name %></h2>
 <% end %>
-  <%= render partial: "layouts/flash" %>
-  <h2><%= @project.name %></h2>
   <h5 class="dates">
     <%= @project.start_date.strftime("%B %Y") %> &ndash; 
     <% if @project.end_date.nil? %>
@@ -32,9 +34,9 @@
 
 <hr style="clear:left;">
 
-<p>
-  <%= @project.description %>
-</p>
+
+<%= simple_format(@project.description) %>
+
 
 <% if @project.links.count > 0 %>
   <h5>Links</h5>
@@ -55,7 +57,7 @@
   <h5>Files</h5>
   <ul class="files">
     <% @project.uploaded_files.each do |f| %>
-      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url} do %>
+      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
         <li class="file">
           <%= render partial: "projects/file_type_icon", locals: {file: f}%>
           <%= f.name %>

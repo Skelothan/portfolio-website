@@ -60,6 +60,7 @@ div {
     border-width: 1px;
     border-color: var(--purple-light-2);
     padding: 10px;
+    margin-bottom: 1rem;
     box-shadow: 0 2px 4px var(--purple-gray-2-light);
     background-color: white;
     p {
@@ -68,9 +69,11 @@ div {
   }
   &.notice {
     border-color: var(--bootstrap-success);
+    box-shadow: 0 2px 4px var(--bootstrap-success-gray-2-light);
   }
   &.warning {
     border-color: var(--bootstrap-danger);
+    box-shadow: 0 2px 4px var(--bootstrap-danger-gray-2-light);
   }
 }
 
