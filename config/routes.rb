@@ -8,6 +8,10 @@ Rails.application.routes.draw do
   get "login", to: "sessions#new", as: :login
   get "logout", to: "sessions#destroy", as: :logout
   get "errors/404", to: "errors#error_404", as: :error_404
+
+  get "gamedev", to: "projects#index_gamedev", as: "gamedev"
+  get "webdev", to: "projects#index_webdev", as: "webdev"
+  get "gameaudio", to: "projects#index_gameaudio", as: "gameaudio"
   
 
   # Resource routes

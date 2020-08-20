@@ -6,6 +6,25 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    @title = "All"
+  end
+
+  def index_gamedev
+    @projects = Project.for_category("Game Development").active.by_priority
+    @title = "Game Development"
+    render :index
+  end
+
+  def index_webdev
+    @projects = Project.for_category("Web Development").active.by_priority
+    @title = "Web Development"
+    render :index
+  end
+
+  def index_gameaudio
+    @projects = Project.for_category("Game Audio").active.by_priority
+    @title = "Game Music and Sound Design"
+    render :index
   end
 
   # GET /projects/1

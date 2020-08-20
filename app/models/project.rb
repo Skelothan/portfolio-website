@@ -16,7 +16,9 @@ class Project < ApplicationRecord
     # Scopes
     scope :alphabetical,    lambda {order(:name)}
     scope :chronological,   lambda {order(:start_date, :end_date)}
+    scope :by_priority,     lambda {order(:priority)}
     scope :for_tag,         lambda {|t| joins(:tag).where('tag.name = ?', "#{t}")}
+    scope :for_category,    lambda {|c| where('category = ?', "#{c}")}
     scope :untagged,        lambda {where('id NOT IN (?)', Tag_Project.map{|t| t.project_id})}
     scope :current,         lambda {where('end_date IS NULL')}
     scope :completed,       lambda {where('end_date IS NOT NULL')}
