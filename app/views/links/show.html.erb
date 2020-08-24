@@ -1,18 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Project:</strong>
+  <%= link_to @link.project.name, @link.project %>
+</p>
+
+<p>
   <strong>Name:</strong>
   <%= @link.name %>
 </p>
 
 <p>
   <strong>Url:</strong>
-  <%= @link.url %>
-</p>
-
-<p>
-  <strong>Project:</strong>
-  <%= @link.project %>
+  <%= link_to @link.url, @link.url %>
 </p>
 
 <p>

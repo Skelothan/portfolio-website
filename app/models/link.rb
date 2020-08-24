@@ -20,4 +20,9 @@ class Link < ApplicationRecord
         self.active = false
         self.save!
     end
+
+    def is_soundcloud?()
+        return (self.url.downcase.include?("soundcloud.com/"))
+    end
+    
 end
