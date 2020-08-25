@@ -8,12 +8,7 @@
     <h2><%= @project.name %></h2>
 <% end %>
   <h5 class="dates">
-    <%= @project.start_date.strftime("%B %Y") %> &ndash; 
-    <% if @project.end_date.nil? %>
-      present
-    <% else %>
-      <%= @project.end_date.strftime("%B %Y") %>
-    <% end %>
+    <%= @project.date_range %>  
   </h5>
 
   <% if @project.tags.count > 0 %>
