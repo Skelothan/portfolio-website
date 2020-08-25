@@ -43,7 +43,8 @@
     <% @project.uploaded_files.has_media_type("image").each do |f| %>
       <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
         <li class="gallery">
-          <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt=<%= f.name %>>
+          <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt=<%= f.name %>><br>
+          <div class="gallery-caption"><%= f.name %></div>
         </li>
       <% end %>
     <% end %>
