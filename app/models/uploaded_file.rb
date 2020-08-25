@@ -14,6 +14,7 @@ class UploadedFile < ApplicationRecord
     scope :by_filename,     lambda {order(:url)}
     scope :chronological,   lambda {order(:upload_date)}
     scope :has_media_type,  lambda {|t| where("media_type = ?", "#{t}")}
+    scope :not_media_type,  lambda {|t| where("media_type != ?", "#{t}")}
     scope :active,          lambda {where(active: true)}
     scope :inactive,        lambda {where(active: false)}
 
