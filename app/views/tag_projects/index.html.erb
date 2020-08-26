@@ -12,13 +12,13 @@
   </thead>
 
   <tbody>
-    <% @tag_projects.each do |tag_project| %>
+    <% @tag_projects.each do |t_p| %>
       <tr>
-        <td><%= tag_project.project %></td>
-        <td><%= tag_project.tag %></td>
-        <td><%= link_to 'Show', tag_project %></td>
-        <td><%= link_to 'Edit', edit_tag_project_path(tag_project) %></td>
-        <td><%= link_to 'Destroy', tag_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t_p.project.name, t_p.project %></td>
+        <td><%= link_to t_p.tag.name, t_p.tag %></td>
+        <td><%= link_to 'Show', t_p %></td>
+        <td><%= link_to 'Edit', edit_tag_project_path(t_p) %></td>
+        <td><%= link_to 'Destroy', t_p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

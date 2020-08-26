@@ -2,12 +2,12 @@
 
 <p>
   <strong>Project:</strong>
-  <%= @tag_project.project %>
+  <%= @tag_project.project.name %>
 </p>
 
 <p>
   <strong>Tag:</strong>
-  <%= @tag_project.tag %>
+  <%= @tag_project.tag.name %>
 </p>
 
 <%= link_to 'Edit', edit_tag_project_path(@tag_project) %> |
