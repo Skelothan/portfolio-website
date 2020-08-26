@@ -33,15 +33,14 @@
 <%= simple_format(@project.description) %>
 
 <% if @project.uploaded_files.has_media_type("image").count > 0 %>
+  <%= render partial: "projects/modal" %>
   <h5 class="project-subheader">Gallery</h5>
   <ul class="files">
     <% @project.uploaded_files.has_media_type("image").each do |f| %>
-      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
-        <li class="gallery">
-          <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt=<%= f.name %>><br>
-          <div class="gallery-caption"><%= f.name %></div>
-        </li>
-      <% end %>
+      <li class="gallery" data-toggle="modal" data-target="#gallery-modal" data-image=<%= asset_path(f.url, type: :file) %> data-title="<%= f.name %>">
+        <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt="<%= f.name %>"><br>
+        <div class="gallery-caption"><%= f.name %></div>
+      </li>
     <% end %>
   </ul>
 <% end %>
