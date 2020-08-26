@@ -36,9 +36,19 @@ class Project < ApplicationRecord
         self.save!
     end
 
-    # Return a string showing the date range of this project. e.g. September 2016 – December 2017, May 2020 – present
+    # Return a string showing the date range of this project. 
+    # e.g. September 2016 – December 2017, May 2020 – present, 
+    # "June 2020" (if both dates in the same month)
     def date_range()
-        return (self.start_date.strftime("%B %Y") + " – " + ((self.end_date and self.end_date.strftime("%B %Y")) or "present"))
+        output = self.start_date.strftime("%B %Y")
+        if end_date.nil? then
+            output += " – " + "present"
+        else
+            e_d = self.end_date.strftime("%B %Y")
+            if output == e_d then return output end
+            output += " – " + e_d
+        end
+        return output
     end
 
     def num_tags()

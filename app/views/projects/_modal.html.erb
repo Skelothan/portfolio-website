@@ -1,0 +1,33 @@
+<!-- Code largely inspired by https://getbootstrap.com/docs/4.0/components/modal/ -->
+<div class="modal fade" id="gallery-modal" tabindex="-1" role="dialog" aria-labelledby="gallery-modal-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="gallery-modal-title">New message</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <img class="modal-image" src="">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $("#gallery-modal").on("show.bs.modal", function(event) {
+        var trigger = $(event.relatedTarget);
+        console.log("trigger: ", trigger);
+        var url = trigger.data("image");
+        var title = trigger.data("title");
+        console.log("url: ", url);
+        console.log("title: ", title);
+        var modal = $("#gallery-modal");
+
+        modal.find(".modal-title").text(title);
+        modal.find("img.modal-image").attr("src", url);
+        modal.find("img.modal-image").attr("alt", title);
+
+    })
+</script>

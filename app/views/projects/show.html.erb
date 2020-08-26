@@ -8,12 +8,7 @@
     <h2><%= @project.name %></h2>
 <% end %>
   <h5 class="dates">
-    <%= @project.start_date.strftime("%B %Y") %> &ndash; 
-    <% if @project.end_date.nil? %>
-      present
-    <% else %>
-      <%= @project.end_date.strftime("%B %Y") %>
-    <% end %>
+    <%= @project.date_range %>  
   </h5>
 
   <% if @project.tags.count > 0 %>
@@ -37,9 +32,21 @@
 
 <%= simple_format(@project.description) %>
 
+<% if @project.uploaded_files.has_media_type("image").count > 0 %>
+  <%= render partial: "projects/modal" %>
+  <h5 class="project-subheader">Gallery</h5>
+  <ul class="files">
+    <% @project.uploaded_files.has_media_type("image").each do |f| %>
+      <li class="gallery" data-toggle="modal" data-target="#gallery-modal" data-image=<%= asset_path(f.url, type: :file) %> data-title="<%= f.name %>">
+        <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt="<%= f.name %>"><br>
+        <div class="gallery-caption"><%= f.name %></div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
 
 <% if @project.links.count > 0 %>
-  <h5>Links</h5>
+  <h5 class="project-subheader">Links</h5>
   <ul class="links">
     <% @project.links.each do |l| %>
         <% if l.is_soundcloud? %>
@@ -63,10 +70,10 @@
   </ul>
 <% end %>
 
-<% if @project.file_projects.count > 0 %>
-  <h5>Files</h5>
+<% if @project.uploaded_files.not_media_type("image").count > 0 %>
+  <h5 class="project-subheader">Files</h5>
   <ul class="files">
-    <% @project.uploaded_files.each do |f| %>
+    <% @project.uploaded_files.not_media_type("image").each do |f| %>
       <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
         <li class="file">
           <%= render partial: "projects/file_type_icon", locals: {file: f}%>
@@ -79,7 +86,7 @@
 
 <!-- asset_path(file.url, type: :file) -->
 
-<br>
+<br style="clear: both;">
 <% if can? :edit, Project %>
   <%= link_to 'Edit', edit_project_path(@project) %> | 
 <% end %>
