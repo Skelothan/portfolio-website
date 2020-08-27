@@ -3,7 +3,7 @@ class Tag < ApplicationRecord
     has_many :projects, through: :tag_projects
 
     # Validations
-    validates_presence_of :name, :category, :active
+    validates_presence_of :name, :category
     validates_uniqueness_of :name
 
     # Scopes
