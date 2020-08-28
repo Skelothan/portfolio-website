@@ -5,12 +5,14 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.all
+    @tags = Tag.active
+    @categories = @tags.map{|t| t.category}.uniq
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
+    @projects = @tag.projects.active
   end
 
   # GET /tags/new
