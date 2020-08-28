@@ -9,6 +9,9 @@ class Ability
         else
             can :index, Project
             can :show, Project
+            can :index_gamedev, Project
+            can :index_gameaudio, Project
+            can :index_webdev, Project
 
             can :index, Tag
             can :show, Tag
