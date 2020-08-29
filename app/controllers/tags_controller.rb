@@ -5,8 +5,8 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.active
-    @categories = @tags.map{|t| t.category}.uniq
+    @tags = Tag.active.by_name
+    @categories = @tags.map{|t| t.category}.uniq.sort
   end
 
   # GET /tags/1
