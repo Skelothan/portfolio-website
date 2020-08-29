@@ -45,18 +45,13 @@ ul.links, ul.files, ul.projects {
 
 ul.links li, ul.files li, ul.projects li {
     list-style-type: none;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--purple-light-2);
     padding: 10px;
-    box-shadow: 0 2px 4px var(--purple-gray-2-light);
     margin-bottom: 16px;
     svg {
         fill: var(--purple-gray-1);
         height: 2em; 
         width: 2em;
     }
-
     &:hover {
         position: relative;
         top: -2px;
