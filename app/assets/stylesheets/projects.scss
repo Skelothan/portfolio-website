@@ -6,6 +6,12 @@ h5.dates {
     font-style: italic;
 }
 
+h5.project-subheader {
+    clear: both;
+}
+
+
+// Tag list styles:
 div.tags {
     font-size: 10pt;
 }
@@ -31,6 +37,8 @@ ul.tags {
     }
 }
 
+
+// Project, uploaded file, and link list styles
 ul.links, ul.files, ul.projects {
     padding-left: 10px;
     max-width: fit-content;
@@ -60,6 +68,13 @@ ul.links li, ul.files li, ul.projects li {
     }
 }
 
+li.link svg.external-link {
+    height: 1em;
+    width: 1em;
+}
+
+
+// Project list styles
 ul.projects {
     height: max-content;
     max-width: 100%;
@@ -87,11 +102,8 @@ div.project-options {
     text-align: center;
 }
 
-li.link svg.external-link {
-    height: 1em;
-    width: 1em;
-}
 
+// Image gallery styles
 img.project-gallery {
     width: 100%;
 }
@@ -101,10 +113,6 @@ li.gallery {
     margin-left: 1%;
     margin-right: 1%;
     float: left;
-}
-
-h5.project-subheader {
-    clear: both;
 }
 
 div.gallery-caption {
