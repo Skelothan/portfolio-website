@@ -38,5 +38,8 @@
 # Ignore documentation screenshots
 /doc/pics/*
 
+# Ignore site content
+/doc/project_descriptions/*
+
 # Ignore uploaded files
 /app/assets/files/*
