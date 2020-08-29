@@ -8,12 +8,12 @@
   <p>Note: This tag is currently not in use.</p>
 <% end %>
 
-<% if @tag.projects.size == 0 %>
+<% if @projects.size == 0 %>
   <p>There are currently no projects with this tag.</p>
 <% else %>
   <h4>Projects with this tag:</h4>
   <ul class="projects-for-tag">
-    <% @tag.projects.active.each do |p| %>
+    <% @projects.each do |p| %>
       <li><%= link_to p.name, project_path(p)%></li>
     <% end %>
   </ul>
