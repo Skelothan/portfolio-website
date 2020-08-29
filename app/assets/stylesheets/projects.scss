@@ -52,19 +52,7 @@ ul.links li, ul.files li, ul.projects li {
         height: 2em; 
         width: 2em;
     }
-    &:hover {
-        position: relative;
-        top: -2px;
-        box-shadow: 0 4px 5px var(--purple-gray-2-light);
-        background-color: var(--purple-gray-ultralight);
-        svg {
-            fill: var(--purple-core);
-        }
-    }
-    &:active {
-        position: relative;
-        top: 2px;
-        box-shadow: 0 0 0 var(--purple-gray-2-light);
+    &:hover, &:active {
         background-color: var(--purple-gray-ultralight);
         svg {
             fill: var(--purple-core);

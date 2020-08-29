@@ -40,3 +40,17 @@
     border-color: var(--purple-light-2);
     box-shadow: 0 2px 4px var(--purple-gray-2-light);
 }
+
+.clickable {
+    &:hover {
+        position: relative;
+        top: -2px;
+        box-shadow: 0 4px 5px 1px var(--purple-gray-2-light);
+    }
+
+    &:active {
+        position: relative;
+        top: 2px;
+        box-shadow: 0 0 0 var(--purple-gray-2-light);
+    }
+}

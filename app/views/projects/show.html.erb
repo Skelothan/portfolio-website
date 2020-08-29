@@ -42,7 +42,7 @@
   <h5 class="project-subheader">Gallery</h5>
   <ul class="files">
     <% @gallery.each do |f| %>
-      <li class="gallery hovering" data-toggle="modal" data-target="#gallery-modal" data-image=<%= asset_path(f.url, type: :file) %> data-title="<%= f.name %>">
+      <li class="gallery hovering clickable" data-toggle="modal" data-target="#gallery-modal" data-image=<%= asset_path(f.url, type: :file) %> data-title="<%= f.name %>">
         <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt="<%= f.name %>"><br>
         <div class="gallery-caption"><%= f.name %></div>
       </li>
@@ -56,7 +56,7 @@
   <ul class="links">
     <% @links.each do |l| %>
         <% if l.is_soundcloud? %>
-          <li class="soundcloud-embed hovering">
+          <li class="soundcloud-embed hovering clickable">
             <%= link_to l.url, html_options = {target: "_blank"} do %>
               <p class="soundcloud-embed"><%= l.name %></p>
             <% end %>
@@ -64,7 +64,7 @@
           </li>
         <% else %>
           <%= link_to l.url, html_options = {target: "_blank"} do %>
-            <li class="link hovering">
+            <li class="link hovering clickable">
               <%= render partial: "bootstrap-icons/link_45deg" %>
               <%= l.name %>
               <%= render "bootstrap-icons/box_arrow_up-right", locals: {height: 16, width: 16} %>
@@ -82,7 +82,7 @@
   <ul class="files">
     <% @files.each do |f| %>
       <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
-        <li class="file hovering">
+        <li class="file hovering clickable">
           <%= render partial: "projects/file_type_icon", locals: {file: f}%>
           <%= f.name %>
         </li>
