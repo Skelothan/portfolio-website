@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.active
     @title = "All"
   end
 
@@ -30,6 +30,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+    @gallery = @project.uploaded_files.has_media_type("image")
+    @links = @project.links
+    @files = @project.uploaded_files.not_media_type("image")
+    @tags = @project.tags
   end
 
   # GET /projects/new

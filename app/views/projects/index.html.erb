@@ -4,12 +4,12 @@
 
 
 <ul class="projects">
-  <% @projects.active.each do |project| %>
+  <% @projects.each do |project| %>
     <%= link_to project_path(project) do %>
       <% if project.has_thumbnail? then %>
-        <li class="project" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,1)), url('assets/<%= project.thumbnail.url %>')">
+        <li class="project hovering clickable" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.7), rgba(255,255,255,1)), url('assets/<%= project.thumbnail.url %>')">
       <% else %>
-        <li class="project">
+        <li class="project hovering clickable">
       <% end %>
         <h4><%= project.name %></h4>
         <% if not project.short_description.nil? %>

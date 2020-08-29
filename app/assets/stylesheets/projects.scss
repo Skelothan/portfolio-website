@@ -6,6 +6,12 @@ h5.dates {
     font-style: italic;
 }
 
+h5.project-subheader {
+    clear: both;
+}
+
+
+// Tag list styles:
 div.tags {
     font-size: 10pt;
 }
@@ -31,6 +37,8 @@ ul.tags {
     }
 }
 
+
+// Project, uploaded file, and link list styles
 ul.links, ul.files, ul.projects {
     padding-left: 10px;
     max-width: fit-content;
@@ -45,31 +53,14 @@ ul.links, ul.files, ul.projects {
 
 ul.links li, ul.files li, ul.projects li {
     list-style-type: none;
-    border-style: solid;
-    border-width: 1px;
-    border-color: var(--purple-light-2);
     padding: 10px;
-    box-shadow: 0 2px 4px var(--purple-gray-2-light);
     margin-bottom: 16px;
     svg {
         fill: var(--purple-gray-1);
         height: 2em; 
         width: 2em;
     }
-
-    &:hover {
-        position: relative;
-        top: -2px;
-        box-shadow: 0 4px 5px var(--purple-gray-2-light);
-        background-color: var(--purple-gray-ultralight);
-        svg {
-            fill: var(--purple-core);
-        }
-    }
-    &:active {
-        position: relative;
-        top: 2px;
-        box-shadow: 0 0 0 var(--purple-gray-2-light);
+    &:hover, &:active {
         background-color: var(--purple-gray-ultralight);
         svg {
             fill: var(--purple-core);
@@ -77,6 +68,13 @@ ul.links li, ul.files li, ul.projects li {
     }
 }
 
+li.link svg.external-link {
+    height: 1em;
+    width: 1em;
+}
+
+
+// Project list styles
 ul.projects {
     height: max-content;
     max-width: 100%;
@@ -104,11 +102,8 @@ div.project-options {
     text-align: center;
 }
 
-li.link svg.external-link {
-    height: 1em;
-    width: 1em;
-}
 
+// Image gallery styles
 img.project-gallery {
     width: 100%;
 }
@@ -118,10 +113,6 @@ li.gallery {
     margin-left: 1%;
     margin-right: 1%;
     float: left;
-}
-
-h5.project-subheader {
-    clear: both;
 }
 
 div.gallery-caption {
