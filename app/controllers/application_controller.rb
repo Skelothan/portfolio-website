@@ -23,4 +23,9 @@ class ApplicationController < ActionController::Base
     end
     helper_method :logged_in?
 
+    def logged_in_as_webmaster?
+        (logged_in? and current_user.role?(:webmaster))
+    end
+    helper_method :logged_in_as_webmaster?
+
 end

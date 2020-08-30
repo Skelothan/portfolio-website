@@ -5,24 +5,37 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.active
+    if logged_in_as_webmaster?
+      @projects = Project.all
+    else
+      @projects = Project.active
+    end
     @title = "All"
   end
 
   def index_gamedev
-    @projects = Project.for_category("Game Development").active.by_priority
+    @projects = Project.for_category("Game Development").by_priority
+    if not logged_in_as_webmaster?
+      @projects = @projects.active
+    end
     @title = "Game Development"
     render :index
   end
 
   def index_webdev
-    @projects = Project.for_category("Web Development").active.by_priority
+    @projects = Project.for_category("Web Development").by_priority
+    if not logged_in_as_webmaster?
+      @projects = @projects.active
+    end
     @title = "Web Development"
     render :index
   end
 
   def index_gameaudio
-    @projects = Project.for_category("Game Audio").active.by_priority
+    @projects = Project.for_category("Game Audio").by_priority
+    if not logged_in_as_webmaster?
+      @projects = @projects.active
+    end
     @title = "Game Music and Sound Design"
     render :index
   end
@@ -89,6 +102,10 @@ class ProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_project
       @project = Project.find(params[:id])
+      if not (@project.active or logged_in_as_webmaster?) then
+        flash[:error] = "Guests are not able to view that page."
+        redirect_to projects_path
+      end
     end
 
     # Only allow a list of trusted parameters through.
