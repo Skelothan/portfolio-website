@@ -5,14 +5,20 @@ class TagsController < ApplicationController
   # GET /tags
   # GET /tags.json
   def index
-    @tags = Tag.active
-    @categories = @tags.map{|t| t.category}.uniq
+    @tags = Tag.by_name
+    if not logged_in_as_webmaster? then
+      @tags = @tags.active
+    end
+    @categories = @tags.map{|t| t.category}.uniq.sort
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
-    @projects = @tag.projects.active
+    @projects = @tag.projects
+    if not logged_in_as_webmaster? then
+      @projects = @projects.active
+    end
   end
 
   # GET /tags/new
@@ -68,6 +74,10 @@ class TagsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tag
       @tag = Tag.find(params[:id])
+      if not (@tag.active or logged_in_as_webmaster?) then
+        flash[:error] = "Guests are not able to view that page."
+        redirect_to tags_path
+      end
     end
 
     # Only allow a list of trusted parameters through.
