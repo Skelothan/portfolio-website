@@ -1,0 +1,14 @@
+<%= render partial: "layouts/flash" %>
+
+<p>
+  <strong>File:</strong>
+  <%= @file_project.uploaded_file.name %>
+</p>
+
+<p>
+  <strong>Project:</strong>
+  <%= @file_project.project.name %>
+</p>
+
+<%= link_to 'Edit', edit_file_project_path(@file_project) %> |
+<%= link_to 'Back', file_projects_path %>

@@ -1,0 +1,100 @@
+<!-- Project title. -->
+<!-- Render a thumbnail and some extra space if one exists. -->
+<% if @project.has_thumbnail? then %>
+  <div class="project-title" style="background-image: linear-gradient(to bottom, rgba(255,255,255,0.4), rgba(255,255,255,1)), url('<%= asset_path(@project.thumbnail.url, type: :file) %>')">
+    <%= render partial: "layouts/flash" %>
+    <h2 style="margin-top: 6em;"><%= @project.name %></h2>
+<% else %>
+  <div class="project-title">
+    <%= render partial: "layouts/flash" %>
+    <h2><%= @project.name %></h2>
+<% end %>
+  <h5 class="dates">
+    <%= @project.date_range %>  
+  </h5>
+
+  <!-- Project tags, if there are any. -->
+  <% if @tags.count > 0 %>
+    <div class="tags">
+      <ul class="tags">
+        <li><%= render partial: "bootstrap-icons/tag_fill" %></li>
+        <% @tags.each do |t| %>
+          <%= link_to tag_path(t) do %>
+            <li class="tag"><%= t.name %></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>
+
+
+
+<hr style="clear:left;">
+
+<!-- Project description. -->
+<!-- Despite having the least code, this is the majority of the content! -->
+<%= simple_format(@project.description) %>
+
+<!-- Gallery images, if they exist -->
+<% if @gallery.count > 0 %>
+  <%= render partial: "projects/modal" %>
+  <h5 class="project-subheader">Gallery</h5>
+  <ul class="files">
+    <% @gallery.each do |f| %>
+      <li class="gallery hovering clickable" data-toggle="modal" data-target="#gallery-modal" data-image=<%= asset_path(f.url, type: :file) %> data-title="<%= f.name %>">
+        <img class="project-gallery" src=<%= asset_path(f.url, type: :file) %> alt="<%= f.name %>"><br>
+        <div class="gallery-caption"><%= f.name %></div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- External links, if they exist -->
+<% if @links.count > 0 %>
+  <h5 class="project-subheader">Links</h5>
+  <ul class="links">
+    <% @links.each do |l| %>
+        <% if l.is_soundcloud? %>
+          <li class="soundcloud-embed hovering clickable">
+            <%= link_to l.url, html_options = {target: "_blank"} do %>
+              <p class="soundcloud-embed"><%= l.name %></p>
+            <% end %>
+            <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src=<%= "https://w.soundcloud.com/player/?url=#{l.url}&color=%23ad0dff&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"%>></iframe>
+          </li>
+        <% else %>
+          <%= link_to l.url, html_options = {target: "_blank"} do %>
+            <li class="link hovering clickable">
+              <%= render partial: "bootstrap-icons/link_45deg" %>
+              <%= l.name %>
+              <%= render "bootstrap-icons/box_arrow_up-right", locals: {height: 16, width: 16} %>
+            </li>
+          <% end %>
+        <% end %>
+      
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- Uploaded files for download, if they exist -->
+<% if @files.count > 0 %>
+  <h5 class="project-subheader">Files</h5>
+  <ul class="files">
+    <% @files.each do |f| %>
+      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
+        <li class="file hovering clickable">
+          <%= render partial: "projects/file_type_icon", locals: {file: f}%>
+          <%= f.name %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<!-- asset_path(file.url, type: :file) -->
+
+<br style="clear: both;">
+<% if can? :edit, Project %>
+  <%= link_to 'Edit', edit_project_path(@project) %> | 
+<% end %>
+<%= link_to 'Back', projects_path %>

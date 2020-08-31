@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  authority: MyString
+  password_digest: MyString
+
+two:
+  authority: MyString
+  password_digest: MyString

@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col">
+        <p class="footer">
+            <%= link_to "Home", home_path, class: "footer-link" %> | 
+            <%= link_to "About", about_path, class: "footer-link" %> | 
+            <%= link_to "Contact", contact_path, class: "footer-link" %> | 
+            <%= link_to "Privacy", privacy_path, class: "footer-link" %>
+            <br><br>
+            Site contents and style &copy;2020 Jonathan Fischer. All rights reserved.
+            <br><br>
+        </p>
+        <p class="footer-small">
+            <% if logged_in? then %>
+                 <%= link_to "Log out", logout_path, class: "footer-link" %>
+            <% else %>
+                <%= link_to "Webmaster log in", login_path, class: "footer-link" %>
+            <% end %>
+        </p>
+    </div>
+</div>

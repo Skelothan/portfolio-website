@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Portfolio</title>
+    <title>Jonathan Fischer</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render partial: "layouts/header" %>
+      <%= render partial: "layouts/navbar" %>
+      <div class="content">
+        <%= yield %>
+      </div>
+      <br>
+      <hr>
+      <%= render partial: "layouts/footer" %>
+    </div>
   </body>
 </html>

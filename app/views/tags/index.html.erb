@@ -1,0 +1,19 @@
+<%= render partial: "layouts/flash" %>
+
+<h1>All Tags</h1>
+<hr>
+
+<% for c in @categories do %>
+  <h5><%= c %></h5>
+  <ul class="tags-list">
+    <% @tags.for_category(c).each do |t| %>
+      <li><%= link_to t.name, t %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<br>
+
+<% if can? :create, Tag %>
+  <%= link_to 'New Tag', new_tag_path %>
+<% end %>

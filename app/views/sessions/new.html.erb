@@ -1,0 +1,15 @@
+<%= render partial: "layouts/flash" %>
+
+<h2>Log In</h2>
+
+<div class="form-login">
+    <%= form_tag sessions_path do %>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %><br>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %><br>
+        <hr>
+        <%= submit_tag "Log In" %>
+    <% end %>
+</div>
+

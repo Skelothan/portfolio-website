@@ -1,0 +1,128 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+h5.dates {
+    font-style: italic;
+}
+
+h5.project-subheader {
+    clear: both;
+}
+
+
+// Tag list styles:
+div.tags {
+    font-size: 10pt;
+}
+
+ul.tags {
+    padding-left: 0px;
+    height: max-content;
+    margin-bottom: 0px;
+    li {
+        list-style-type: none;
+        float: left;
+        padding: 5px;
+        margin-bottom: 5px;
+        &.tag:hover {
+            background-color: var(--purple-gray-ultralight);
+            color: var(--cyan-dark-1);
+            text-decoration: none;
+            text-decoration-color: var(--cyan-dark-1);
+        }
+        &.tag:active {
+            background-color: white;
+        }
+    }
+}
+
+
+// Project, uploaded file, and link list styles
+ul.links, ul.files, ul.projects {
+    padding-left: 10px;
+    max-width: fit-content;
+    a {
+        max-width: fit-content;
+        &:hover {
+            text-decoration: none;
+            /*color: var(--cyan-core);*/
+        }
+    }
+}
+
+ul.links li, ul.files li, ul.projects li {
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 16px;
+    svg {
+        fill: var(--purple-gray-1);
+        height: 2em; 
+        width: 2em;
+    }
+    &:hover, &:active {
+        background-color: var(--purple-gray-ultralight);
+        svg {
+            fill: var(--purple-core);
+        }
+    }
+}
+
+li.link svg.external-link {
+    height: 1em;
+    width: 1em;
+}
+
+
+// Project list styles
+ul.projects {
+    height: max-content;
+    max-width: 100%;
+    li {
+        width: 31%;
+        margin: 1%;
+        float: left;
+        text-align: center;
+        background-size: cover;
+        p {
+            color: black;
+            margin-bottom: 0px;
+        }
+    }
+}
+
+div.project-title {
+    background-size: cover;
+    margin: -15px;
+    margin-top: -15px;
+    padding: 15px;
+}
+
+div.project-options {
+    text-align: center;
+}
+
+
+// Image gallery styles
+img.project-gallery {
+    width: 100%;
+}
+
+li.gallery {
+    width: 22%;
+    margin-left: 1%;
+    margin-right: 1%;
+    float: left;
+}
+
+div.gallery-caption {
+    font-weight: bold;
+    text-align: center;
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 8pt;
+    color: black;
+}
+
+img.modal-image {
+    width: 100%;
+}

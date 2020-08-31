@@ -1,0 +1,10 @@
+// Place all the styles related to the Tags controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+// Temporary, but will do for now. 
+// I plan to make a prettier project clickable. 
+ul.projects-for-tag li, ul.tags-list li {
+    list-style-type: none;
+}

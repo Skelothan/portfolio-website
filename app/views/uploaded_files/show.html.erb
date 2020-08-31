@@ -1,0 +1,29 @@
+<%= render partial: "layouts/flash" %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @uploaded_file.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @uploaded_file.url %>
+</p>
+
+<p>
+  <strong>Media type:</strong>
+  <%= @uploaded_file.media_type %>
+</p>
+
+<p>
+  <strong>Upload date:</strong>
+  <%= @uploaded_file.upload_date %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @uploaded_file.active %>
+</p>
+
+<%= link_to 'Edit', edit_uploaded_file_path(@uploaded_file) %> |
+<%= link_to 'Back', uploaded_files_path %>

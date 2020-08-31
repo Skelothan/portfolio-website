@@ -1,0 +1,24 @@
+<%= render partial: "layouts/flash" %>
+
+<p>
+  <strong>Project:</strong>
+  <%= link_to @link.project.name, @link.project %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @link.name %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= link_to @link.url, @link.url %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @link.active %>
+</p>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>
