@@ -34,10 +34,10 @@ Uploaded files are various files pertaining to a project. They are linked on the
 |:---|:---|:---|:---|
 |id|int|Primary key.|`1`|
 |name|string|The name or a short description of the file.|"Data Dictionary"|
-|url|string|The path to the file's location from within the `assets/` directory. Must be unique.|"files/data_dictionary.md"|
 |media_type|string|A general category of file that this file belongs to. A full list of all valid media types is shown to the right. Case-sensitive.|"document", "image", "audio", "video", "executable", "archive", "other"|
 |upload_date|date|The date the file was added to the application. Must be on or before the current date. Set automatically by the system.|`2020-07-14`|
 |active|boolean|Whether this file should be publicly displayed on the site|`true`|
+|cw_file|string|A file uploaded through CarrierWave to the app.|"data_dictionary.md"
 
 ### Links
 Links are hyperlinks to external websites related to a project. This could include things like a Github repository, a Soundcloud playlist, an itch.io page, or some other website with published material related to the project.
