@@ -41,6 +41,7 @@ gem 'simple_form'
 gem 'will_paginate'
 gem 'shoulda', '3.5.0'
 gem 'shoulda-matchers', '2.8.0'
+gem 'carrierwave', '~> 2.0'
 
 # CSS Gems
 gem 'jquery-rails'

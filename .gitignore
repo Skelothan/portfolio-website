@@ -43,3 +43,4 @@
 
 # Ignore uploaded files
 /app/assets/files/*
+/public/uploads/*
