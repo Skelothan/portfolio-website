@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   get "index", to: "home#index", as: :home
   get "about", to: "home#about", as: :about
   get "contact", to: "home#contact", as: :contact
-  get "privacy", to: "home#privacy", as: :privacy
-  get "search", to: "home#search", as: :search
   get "login", to: "sessions#new", as: :login
   get "logout", to: "sessions#destroy", as: :logout
   get "errors/404", to: "errors#error_404", as: :error_404
