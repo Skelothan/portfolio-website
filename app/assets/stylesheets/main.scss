@@ -22,6 +22,12 @@ a {
   cursor: pointer;
 }
 
+.hidden {
+  visibility: hidden;
+  height: 0px;
+  margin: 0px !important;
+}
+
 div.content a {
   color: var(--cyan-core);
 
