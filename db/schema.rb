@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_12_151155) do
+ActiveRecord::Schema.define(version: 2020_09_03_043650) do
 
   create_table "file_projects", force: :cascade do |t|
     t.integer "uploaded_file_id"
@@ -64,12 +64,12 @@ ActiveRecord::Schema.define(version: 2020_08_12_151155) do
 
   create_table "uploaded_files", force: :cascade do |t|
     t.string "name"
-    t.string "url"
     t.string "media_type"
     t.date "upload_date"
     t.boolean "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "cw_file"
   end
 
   create_table "users", force: :cascade do |t|
