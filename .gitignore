@@ -44,3 +44,7 @@
 # Ignore uploaded files
 /app/assets/files/*
 /public/uploads/*
+
+# Ignore application configuration
+/config/application.yml
+/doc/private/*
