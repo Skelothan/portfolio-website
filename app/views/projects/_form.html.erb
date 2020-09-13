@@ -38,7 +38,7 @@
 
   <div class="field">
     <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.check_box :active, checked: true %>
   </div>
 
   <div class="field">
@@ -48,7 +48,7 @@
 
   <div class="field">
     <%= form.label :category %>
-    <%= form.text_field :category %>
+    <%= form.select :category, ["Game Development", "Game Audio", "Web Development", "Test Category"] %>
   </div>
 
   <div class="field">
