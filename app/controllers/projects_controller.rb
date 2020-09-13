@@ -47,6 +47,7 @@ class ProjectsController < ApplicationController
     @links = @project.links
     @files = @project.uploaded_files.not_media_type("image")
     @tags = @project.tags
+    @back_link = back_link(@project)
   end
 
   # GET /projects/new
@@ -112,4 +113,18 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name, :start_date, :end_date, :short_description, :description, :active, :thumbnail_id, :category, :priority)
     end
+
+    # Clicking "back" on a project show page sends to the correct index:
+    def back_link(project)
+      if project.active then
+        if project.category == "Game Development"
+            return gamedev_path
+        elsif project.category == "Game Audio"
+            return gameaudio_path
+        elsif project.category == "Web Development"
+            return webdev_path
+        end
+      end
+      return projects_path
+  end
 end

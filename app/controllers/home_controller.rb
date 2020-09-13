@@ -3,14 +3,9 @@ class HomeController < ApplicationController
     end
 
     def about
+        redirect_to home_path
     end
 
     def contact
-    end
-
-    def privacy
-    end
-
-    def search
     end
 end

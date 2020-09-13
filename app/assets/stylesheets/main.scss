@@ -8,7 +8,7 @@ body {
 
 p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 18px;
 }
 
@@ -20,6 +20,12 @@ pre {
 
 a {
   cursor: pointer;
+}
+
+.hidden {
+  visibility: hidden;
+  height: 0px;
+  margin: 0px !important;
 }
 
 div.content a {

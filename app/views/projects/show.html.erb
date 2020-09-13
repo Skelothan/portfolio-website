@@ -81,7 +81,7 @@
   <h5 class="project-subheader">Files</h5>
   <ul class="files">
     <% @files.each do |f| %>
-      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last} do %>
+      <%= link_to asset_path(f.url, type: :file), html_options = {download: f.url.split('/').last.split('?').first} do %>
         <li class="file hovering clickable">
           <%= render partial: "projects/file_type_icon", locals: {file: f}%>
           <%= f.name %>
@@ -97,4 +97,4 @@
 <% if can? :edit, Project %>
   <%= link_to 'Edit', edit_project_path(@project) %> | 
 <% end %>
-<%= link_to 'Back', projects_path %>
+<%= link_to 'Back', @back_link %>
