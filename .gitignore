@@ -47,3 +47,4 @@
 
 # Ignore application configuration
 /config/application.yml
+/doc/new_user_credentials.csv
