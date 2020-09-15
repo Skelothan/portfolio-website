@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
     @gallery = @project.uploaded_files.has_media_type("image")
     @links = @project.links
     @files = @project.uploaded_files.not_media_type("image")
-    @tags = @project.tags
+    @tags = @project.tags.by_name
     @back_link = back_link(@project)
   end
 
