@@ -1,5 +1,6 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
+  before_action :set_resources, only: [:new, :edit, :update]
   authorize_resource
 
   # GET /links
@@ -66,6 +67,10 @@ class LinksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_link
       @link = Link.find(params[:id])
+    end
+
+    def set_resources
+      @projects = Project.all.collect{|p| [p.name, p.id]}
     end
 
     # Only allow a list of trusted parameters through.
