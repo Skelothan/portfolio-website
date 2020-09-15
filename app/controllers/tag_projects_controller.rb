@@ -1,5 +1,6 @@
 class TagProjectsController < ApplicationController
   before_action :set_tag_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_resources, only: [:new, :edit, :update]
   authorize_resource
 
   # GET /tag_projects
@@ -66,6 +67,11 @@ class TagProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_tag_project
       @tag_project = TagProject.find(params[:id])
+    end
+
+    def set_resources
+      @tags = Tag.all.collect{|t| [t.name, t.id]}
+      @projects = Project.all.collect{|p| [p.name, p.id]}
     end
 
     # Only allow a list of trusted parameters through.

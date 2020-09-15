@@ -1,5 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_resources, only: [:new, :edit, :update]
   authorize_resource
 
   # GET /projects
@@ -46,7 +47,7 @@ class ProjectsController < ApplicationController
     @gallery = @project.uploaded_files.has_media_type("image")
     @links = @project.links
     @files = @project.uploaded_files.not_media_type("image")
-    @tags = @project.tags
+    @tags = @project.tags.by_name
     @back_link = back_link(@project)
   end
 
@@ -107,6 +108,10 @@ class ProjectsController < ApplicationController
         flash[:error] = "Guests are not able to view that page."
         redirect_to projects_path
       end
+    end
+
+    def set_resources
+      @thumbnails = UploadedFile.has_media_type("image").collect{|f| [f.name, f.id]}
     end
 
     # Only allow a list of trusted parameters through.

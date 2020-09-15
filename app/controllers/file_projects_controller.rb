@@ -1,5 +1,6 @@
 class FileProjectsController < ApplicationController
   before_action :set_file_project, only: [:show, :edit, :update, :destroy]
+  before_action :set_resources, only: [:new, :edit, :update]
   authorize_resource
 
   # GET /file_projects
@@ -66,6 +67,11 @@ class FileProjectsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_file_project
       @file_project = FileProject.find(params[:id])
+    end
+
+    def set_resources
+      @files = UploadedFile.all.collect{|f| [f.name, f.id]}
+      @projects = Project.all.collect{|p| [p.name, p.id]}
     end
 
     # Only allow a list of trusted parameters through.
