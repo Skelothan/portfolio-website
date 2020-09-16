@@ -25,7 +25,7 @@ Tags let me group projects by what kind of project they are and what skills I've
 |id|int|Primary key.|`1`|
 |name|string|The name of the tag.|"Python"|
 |category|string|A broad category to which the tag belongs. Tags will be grouped by category on the main tag list. Categories are plural when possible.|"Programming Languages"|
-|active|boolean|Primary key.|`true`|
+|active|boolean|Whether this tag should be publicly displayed on the site.|`true`|
 
 ### Uploaded_Files
 Uploaded files are various files pertaining to a project. They are linked on the project information page and will be downloaded when clicked.  
