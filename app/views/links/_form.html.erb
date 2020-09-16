@@ -23,12 +23,12 @@
 
   <div class="field">
     <%= form.label :project_id %>
-    <%= form.text_field :project_id %>
+    <%= form.select :project_id, @projects %>
   </div>
 
   <div class="field">
     <%= form.label :active %>
-    <%= form.check_box :active %>
+    <%= form.check_box :active, checked: true %>
   </div>
 
   <div class="actions">

@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :project_id %>
-    <%= form.text_field :project_id %>
+    <%= form.select :project_id, @projects %>
   </div>
 
   <div class="field">
     <%= form.label :tag_id %>
-    <%= form.text_field :tag_id %>
+    <%= form.select :tag_id, @tags %>
   </div>
 
   <div class="actions">

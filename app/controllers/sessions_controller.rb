@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
         user = User.find_by_username(params[:username])
         if user and user.authenticate(params[:password]) then
             session[:user_id] = user.id
-            redirect_to projects_path, notice: "Welcome back, Jonathan."
+            redirect_to home_path, notice: "Welcome back, Jonathan."
         else
             flash.alert = "Incorrect password."
             redirect_to login_path
@@ -15,6 +15,6 @@ class SessionsController < ApplicationController
 
     def destroy
         session[:user_id] = nil
-        redirect_to projects_path, notice: "Logged out."
+        redirect_to home_path, notice: "Logged out."
     end
 end

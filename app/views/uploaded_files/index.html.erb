@@ -18,7 +18,7 @@
     <% @uploaded_files.each do |uploaded_file| %>
       <tr>
         <td><%= uploaded_file.name %></td>
-        <td><%= uploaded_file.url %></td>
+        <td><%= uploaded_file.url.split('?').first + "?[...]" %></td>
         <td><%= uploaded_file.media_type %></td>
         <td><%= uploaded_file.upload_date %></td>
         <td><%= uploaded_file.active %></td>

@@ -13,12 +13,12 @@
 
   <div class="field">
     <%= form.label :uploaded_file_id %>
-    <%= form.text_field :uploaded_file_id %>
+    <%= form.select :uploaded_file_id, @files %>
   </div>
 
   <div class="field">
     <%= form.label :project_id %>
-    <%= form.text_field :project_id %>
+    <%= form.select :project_id, @projects %>
   </div>
 
   <div class="actions">
