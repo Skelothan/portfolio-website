@@ -1,24 +1,5 @@
-# README
+# Skelothan's Portfolio Website
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a portfolio website I made for myself in Ruby on Rails. Normally, this document would describe deployment instructions and such, but I don't really expect anyone to want to deploy this site aside from me.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+For more information on what I did here and why, please see [this project's page on my website.](https://skelothan.dev/projects/3/)
