@@ -37,7 +37,7 @@ class UploadedFile < ApplicationRecord
     end
 
     def set_upload_date()
-        self.upload_date = Date.current
+        self.upload_date = 0.days.ago
         self.save!
     end
     
