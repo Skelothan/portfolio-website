@@ -44,10 +44,10 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @gallery = @project.uploaded_files.has_media_type("image")
-    @links = @project.links
-    @files = @project.uploaded_files.not_media_type("image")
-    @tags = @project.tags.by_name
+    @gallery = @project.uploaded_files.active.has_media_type("image")
+    @links = @project.links.active
+    @files = @project.uploaded_files.active.not_media_type("image")
+    @tags = @project.tags.active.by_name
   end
 
   # GET /projects/new
