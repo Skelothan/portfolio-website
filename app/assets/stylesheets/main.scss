@@ -2,14 +2,19 @@ body {
   background-color: var(--main-bg-color);
   color: #333;
   margin: 33px;
-  font: var(--main-text);
+  font-family: var(--main-text);
   line-height: 18px;
 }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font: var(--main-text);
   font-size: 14px;
   line-height: 18px;
+}
+
+h1, h2 {
+  font-family: var(--header-text);
+  font-weight: 700;
 }
 
 pre {
