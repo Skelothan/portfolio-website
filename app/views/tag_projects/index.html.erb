@@ -17,7 +17,7 @@
         <td><%= link_to t_p.project.name, t_p.project %></td>
         <td><%= link_to t_p.tag.name, t_p.tag %></td>
         <td><%= link_to 'Edit', edit_tag_project_path(t_p) %></td>
-        <td><%= link_to 'Destroy', t_p, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', t_p, class: "destroy", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

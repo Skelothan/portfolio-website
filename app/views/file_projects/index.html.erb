@@ -17,7 +17,7 @@
         <td><%= link_to file_project.uploaded_file.name, file_project.uploaded_file %></td>
         <td><%= link_to file_project.project.name, file_project.project %></td>
         <td><%= link_to 'Edit', edit_file_project_path(file_project) %></td>
-        <td><%= link_to 'Destroy', file_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', file_project, class: "destroy", method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
