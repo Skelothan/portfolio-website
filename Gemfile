@@ -80,3 +80,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# Update Nokogiri to fix security issue
+# https://github.com/advisories/GHSA-vr8q-g5c7-m54m
+gem "nokogiri", ">= 1.11.0.rc4"
