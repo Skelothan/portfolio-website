@@ -7,7 +7,7 @@
     <tr>
       <th>File</th>
       <th>Project</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -16,7 +16,6 @@
       <tr>
         <td><%= link_to file_project.uploaded_file.name, file_project.uploaded_file %></td>
         <td><%= link_to file_project.project.name, file_project.project %></td>
-        <td><%= link_to 'Show', file_project %></td>
         <td><%= link_to 'Edit', edit_file_project_path(file_project) %></td>
         <td><%= link_to 'Destroy', file_project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
