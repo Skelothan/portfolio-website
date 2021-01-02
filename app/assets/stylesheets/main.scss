@@ -9,7 +9,7 @@ body {
 p, ol, ul, td {
   font: var(--main-text);
   font-size: 14px;
-  line-height: 18px;
+  line-height: var(--main-text-line-height);
 }
 
 h1, h2 {
