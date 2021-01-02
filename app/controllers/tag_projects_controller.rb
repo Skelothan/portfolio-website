@@ -30,7 +30,7 @@ class TagProjectsController < ApplicationController
 
     respond_to do |format|
       if @tag_project.save
-        format.html { redirect_to @tag_project, notice: 'Tag project was successfully created.' }
+        format.html { redirect_to tag_projects_path, notice: 'Tag project was successfully created.' }
         format.json { render :show, status: :created, location: @tag_project }
       else
         format.html { render :new }
