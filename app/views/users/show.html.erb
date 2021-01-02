@@ -1,13 +1,13 @@
 <%= render partial: "layouts/flash" %>
 
 <p>
-  <strong>Authority:</strong>
-  <%= @user.authority %>
+  <strong>Username:</strong>
+  <%= @user.username %>
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
+  <strong>Authority:</strong>
+  <%= @user.authority %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

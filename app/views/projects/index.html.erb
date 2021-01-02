@@ -22,7 +22,7 @@
               <%= link_to 'Edit', edit_project_path(project) %>
             <% end %>
             <% if can? :destroy, Project %>
-              | <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+              | <%= link_to 'Destroy', project, class: "destroy", method: :delete, data: { confirm: 'Are you sure?' } %>
             <% end %>
           </div>
         <% end %>
