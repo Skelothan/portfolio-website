@@ -32,6 +32,10 @@
 
 <hr style="clear:left;">
 
+<% if not @project.active %>
+  <p>Note: This project is currently not displayed publicly.</p>
+<% end %>
+
 <!-- Project description. -->
 <!-- Despite having the least code, this is the majority of the content! -->
 <%= simple_format(@project.description) %>
