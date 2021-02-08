@@ -41,7 +41,7 @@ gem 'simple_form'
 gem 'will_paginate'
 
 # File upload gems
-gem 'carrierwave', '~> 2.0'
+gem 'carrierwave', '~> 2.1'
 gem 'figaro'
 gem 'fog-aws'
 
